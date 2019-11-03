@@ -1,20 +1,15 @@
-const request = require('request');
 const getGeoCodes = require('./utils/geoCode');
+const getForecast = require('./utils/forecast');
 
-const darkSkyUrl = "https://api.darksky.net/forecast/3e015c1a66447546e7f9e36ef3d25a22/37.8267,-122.4233";
-
-request({ url: darkSkyUrl, json: true }, (error, response) => {
+getGeoCodes('London', (error, response) => {
     if (error) {
-        console.log('server error');
-    } else if (response.body.error) {
-        console.log('Cannot find weather for this location');
+        console.log(error);
     } else {
-        const currTemp = `Current temperature here is ${response.body.currently.temperature}`;
-        console.log(currTemp);
+        console.log(response);
     }
 });
 
-getGeoCodes('London', (error, response) => {
+getForecast('51.50722', '-0.1275', (error, response) => {
     if (error) {
         console.log(error);
     } else {
