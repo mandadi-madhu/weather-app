@@ -1,6 +1,10 @@
 const express = require('express');
+const path = require('path');
+
+const publicFolderPath = path.join(__dirname, '../public');
 
 const app = express();
+app.use(express.static(publicFolderPath));
 
 app.get('/data', (req, res) => {
     res.send({
