@@ -18,7 +18,7 @@ app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather App',
         description: 'Welcome to Weather App',
-        name: 'Me'
+        name: 'Madhu'
     });
 });
 
@@ -36,6 +36,22 @@ app.get('/help', (req, res) => {
         helpText: 'This is help text',
         name: 'Madhu'
     });
+});
+
+app.get('/help/*', (req, res) => {
+    res.render('404help', {
+        title: '404 Help',
+        errorMessage: 'Help content not found',
+        name: 'Madhu'
+    })
+});
+
+app.get('/*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        errorMessage: 'No matching router found',
+        name: 'Madhu'
+    })
 });
 
 app.listen(3000, () => {
