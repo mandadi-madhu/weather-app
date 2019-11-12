@@ -1,12 +1,15 @@
 const express = require('express');
-// const path = require('path');
+const path = require('path');
 
-// const publicFolderPath = path.join(__dirname, '../public');
+const publicFolderPath = path.join(__dirname, '../public');
+const viewsPath = path.join(__dirname, '../templates');
 
 const app = express();
-// app.use(express.static(publicFolderPath));
+
+app.use(express.static(publicFolderPath));
 
 app.set('view engine', 'hbs');
+app.set('views', viewsPath);
 
 app.get('', (req, res) => {
     res.render('index', {
