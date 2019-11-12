@@ -17,21 +17,24 @@ hbs.registerPartials(partialsPath);
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather App',
-        author: 'Me'
+        description: 'Welcome to Weather App',
+        name: 'Me'
     });
 });
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About me',
-        author: 'Madhu'
+        description: 'About my app',
+        name: 'Madhu'
     });
 });
 
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help',
-        helpText: 'This is help text'
+        helpText: 'This is help text',
+        name: 'Madhu'
     });
 });
 
